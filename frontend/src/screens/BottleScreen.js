@@ -68,7 +68,9 @@ const BottleScreen = ({ route, navigation }) => {
       }
     };
 
-    getChat();
+    if (!isCreateBottle) {
+      getChat();
+    }
 
     if (isSendingMessage && !isCreateBottle) {
       chat_socket.emit('join-bottle', bottleID);

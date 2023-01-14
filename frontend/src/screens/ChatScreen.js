@@ -63,6 +63,7 @@ const ChatScreen = ({ navigation }) => {
               navigation.navigate('BottleScreen', {
                 username: username,
                 isSendingMessage: true,
+                bottleID: item.bottleID,
               })
             }>
             <TextSection>

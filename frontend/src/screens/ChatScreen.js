@@ -51,7 +51,7 @@ const ChatScreen = ({ navigation }) => {
         data={bottleList}
         keyExtractor={item=>item["_id"]}
         renderItem={({item}) =>(
-          <Card onPress={() => navigation.navigate('BottleScreen', { username: username, isSendingMessage: true })}>
+          <Card onPress={() => navigation.navigate('BottleScreen', { username: username, isSendingMessage: true, bottleID: item.bottleID })}>
             <TextSection>
               <UserInfoText>
                 <Username>{item.username}</Username>

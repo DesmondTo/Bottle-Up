@@ -57,7 +57,7 @@ const SignUpScreen = ({ navigation }) => {
         autoCapitalize="none"
         secureTextEntry
       />
-      <Button title="Sign Up" onPress={signUpHandler} />
+      <Button title="Sign Up" color="black" onPress={signUpHandler} />
     </View>
   );
 };

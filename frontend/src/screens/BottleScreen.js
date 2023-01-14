@@ -163,7 +163,9 @@ const BottleScreen = ({ route, navigation }) => {
           }}
           contentContainerStyle={{
             alignItems: 'flex-start',
-          }}>
+          }}
+          ref={ref => {this.scrollView = ref}}
+          onContentSizeChange={() => this.scrollView.scrollToEnd({animated: true})}>
           {chatList.map(chat => {
             // TODO: Change this with a better message UI
             // If username does not match, put on the left, else right

@@ -42,8 +42,8 @@ const OceanScreen = ({ navigation }) => {
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button title="Find Bottle" onPress={findBottleHandler(username)} />
-      <Button title="Write a Message" onPress={writeMessageHandler} />
+      <Button title="Find Bottle" color='black' onPress={findBottleHandler(username)} />
+      <Button title="Write a Message" color='black' onPress={writeMessageHandler} />
     </View>
   );
 };

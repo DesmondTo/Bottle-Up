@@ -8,7 +8,6 @@ import TextSection from '../component/chat/textSection';
 import MessageText from '../component/chat/messageText';
 import Container from '../component/chat/container';
 import { getBottlesAPI } from '../api/bottle-api';
-import { getLatestChatAPI } from '../api/chat-api';
 
 const ChatScreen = ({ navigation }) => {
   const userCtx = useContext(UserContext);
@@ -24,11 +23,6 @@ const ChatScreen = ({ navigation }) => {
       },
     ]);
 
-  const getLatestChat = bottleID => {
-    const resp = getLatestChatAPI(bottleID);
-    return 'latest';
-  };
-
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
       // The screen is focused
@@ -38,7 +32,6 @@ const ChatScreen = ({ navigation }) => {
         const getBottlesSuccess = resp.success;
 
         if (getBottlesSuccess) {
-          console.log('Retrieved all bottles');
           setBottleList(resp.bottles);
         } else {
           createChatAlert('Get bottles failed', resp.message);
@@ -70,7 +63,7 @@ const ChatScreen = ({ navigation }) => {
               <UserInfoText>
                 <Username>{item.username}</Username>
               </UserInfoText>
-              <MessageText>{getLatestChat(item.bottleID)}</MessageText>
+              <MessageText bottleID={item.bottleID} />
             </TextSection>
           </Card>
         )}

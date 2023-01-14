@@ -61,7 +61,7 @@ const ChatScreen = ({ navigation }) => {
             }>
             <TextSection>
               <UserInfoText>
-                <Username>{item.username}</Username>
+                <Username>{item.bottleID.substring(0, 8)}</Username>
               </UserInfoText>
               <MessageText bottleID={item.bottleID} />
             </TextSection>

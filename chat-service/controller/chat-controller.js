@@ -116,7 +116,7 @@ export async function getLatestChat(req, res) {
           .json({ success: false, message: 'Latest chat not found!' });
       }
 
-      return res.status(200).json({ success: true, chats: resp });
+      return res.status(200).json({ success: true, chat: resp });
     } else {
       return res.status(400).json({
         success: false,

@@ -12,8 +12,8 @@ export function OceanStackScreen() {
   return (
     <OceanStack.Navigator>
       <OceanStack.Screen name="OceanScreen" component={OceanScreen} />
-      <OceanStack.Group screenOptions={{ presentation: 'modal' }}>
-        <OceanStack.Screen name="BottleScreen" component={BottleScreen} />
+      <OceanStack.Group screenOptions={{ presentation: 'modal'}}>
+        <OceanStack.Screen name="BottleScreen" component={BottleScreen}/>
       </OceanStack.Group>
     </OceanStack.Navigator>
   );
@@ -29,7 +29,13 @@ export function ChatStackScreen() {
           presentation: 'card',
           headerBackTitleVisible: false,
         }}>
-        <ChatStack.Screen name="BottleScreen" component={BottleScreen} />
+        <ChatStack.Screen 
+          name="BottleScreen" 
+          component={BottleScreen} 
+          options={({route}) => ({
+            title: route.params.username
+          })}
+        />
       </ChatStack.Group>
     </ChatStack.Navigator>
   );

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Text, View, Button, Alert } from 'react-native';
+import { Text, View, Button, Alert, StyleSheet } from 'react-native';
 import UserContext from '../context/user-context';
 
 const ProfileScreen = ({ navigation }) => {
@@ -25,10 +25,18 @@ const ProfileScreen = ({ navigation }) => {
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>{username}</Text>
-      <Button title="Sign Out" onPress={signOutHandler} />
+      <Text style={styles.titleText}>{username}</Text>
+      <Button color="red" title="Sign Out" onPress={signOutHandler} />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  titleText: {
+    fontSize: 30,
+    fontWeight: "bold",
+    margin : 30
+  }
+});
 
 export default ProfileScreen;

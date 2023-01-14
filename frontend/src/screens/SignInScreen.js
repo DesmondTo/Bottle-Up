@@ -48,7 +48,7 @@ const SignInScreen = ({ navigation }) => {
         autoCapitalize="none"
         secureTextEntry
       />
-      <Button title="Sign In" onPress={signInHandler} />
+      <Button title="Sign In" color="black" onPress={signInHandler} />
     </View>
   );
 };

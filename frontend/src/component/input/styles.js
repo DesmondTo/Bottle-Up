@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     margin: 16,
     borderWidth: 1,
     padding: 10,
+    backgroundColor:'white',
   },
 });
 

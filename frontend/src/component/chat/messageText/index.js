@@ -49,8 +49,6 @@ function MessageText({ bottleID }) {
   return (
     <View>
       <Text style={{ ...styles.messageText }}>{latestChat.text}</Text>
-      <Text>{latestChat.username}</Text>
-      <Text>{latestChat.createdAt}</Text>
     </View>
   );
 }

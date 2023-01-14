@@ -92,15 +92,22 @@ const BottleScreen = ({ route, navigation }) => {
   }, []);
 
   const collectBottleHandler = async () => {
-    await collectBottleAPI(username, bottleID);
-    navigation.navigate('OceanScreen');
+    const collectBottleResponse = await collectBottleAPI(username, bottleID);
+    const collectBottleSuccess = collectBottleResponse.success;
+    const collectBottleMessage = collectBottleResponse.message;
+
+    if (collectBottleSuccess) {
+      navigation.navigate('OceanScreen');
+    } else {
+      createChatAlert('Collect bottle failed', collectBottleMessage);
+    }
   };
 
-  const throwBottleHandler = ( username, bottleID ) => async () => {
+  const throwBottleHandler = (username, bottleID) => async () => {
     const throwBottleResponse = await throwBottleAPI(username, bottleID);
     const throwBottleSuccess = throwBottleResponse.success;
     const throwBottleMessage = throwBottleResponse.message;
-    
+
     if (throwBottleSuccess) {
       navigation.navigate('OceanScreen');
     } else {
@@ -108,11 +115,11 @@ const BottleScreen = ({ route, navigation }) => {
     }
   };
 
-  const createBottleHandler = async (username) => {
+  const createBottleHandler = async username => {
     const createBottleResponse = await createBottleAPI(username);
     const createBottleSuccess = createBottleResponse.success;
     const createBottleMessage = createBottleResponse.message;
-    
+
     if (createBottleSuccess) {
       const newBottleID = createBottleResponse.bottleID;
       chat_socket.emit('join-bottle', newBottleID);

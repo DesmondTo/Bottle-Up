@@ -49,7 +49,7 @@ const ChatScreen = ({ navigation }) => {
     <Container>
       <FlatList
         data={bottleList}
-        keyExtractor={item=>item[""]}
+        keyExtractor={item=>item["_id"]}
         renderItem={({item}) =>(
           <Card onPress={() => navigation.navigate('BottleScreen', { username: username, isSendingMessage: true })}>
             <TextSection>

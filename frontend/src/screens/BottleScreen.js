@@ -220,11 +220,17 @@ const BottleScreen = ({ route, navigation }) => {
                 title="Collect Bottle"
                 onPress={collectBottleHandler}
                 color="black"
+                style={{
+                  marginHorizontal: 16,
+                }}
               />
               <CustomButton
                 title="Throw Bottle "
                 onPress={throwBottleHandler(bottleOwner, bottleID)}
                 color="red"
+                style={{
+                  marginHorizontal: 16,
+                }}
               />
             </View>
           </View>
@@ -251,8 +257,7 @@ const BottleScreen = ({ route, navigation }) => {
               <CustomButton
                 color="#d5e5ff"
                 onPress={sendMessageHandler}
-                disabled={!newMessage}
-              >
+                disabled={!newMessage}>
                 <Text>Send</Text>
               </CustomButton>
             </View>

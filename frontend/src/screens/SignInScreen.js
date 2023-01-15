@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { View, Alert } from 'react-native';
+import { View, Alert, Text } from 'react-native';
 import UserContext from '../context/user-context';
 import Input from '../component/input';
 import { Button } from '@rneui/themed';
@@ -35,7 +35,14 @@ const SignInScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View
+      style={{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingHorizontal: 50,
+      }}>
+      <Text style={{ fontSize: 50, fontWeight: 'bold' }}>Bottle💦</Text>
       <Input
         onChangeText={onChangeUsername}
         value={username}
@@ -49,15 +56,16 @@ const SignInScreen = ({ navigation }) => {
         autoCapitalize="none"
         secureTextEntry
       />
-      <Button 
-        title="Sign In" 
-        onPress={signInHandler} 
-        buttonStyle={{ backgroundColor: 'rgba(39, 39, 39, 1)' }}
+      <Button
+        title="Sign In"
+        onPress={signInHandler}
+        buttonStyle={{ backgroundColor: '#002233' }}
         containerStyle={{
           width: 100,
           marginHorizontal: 50,
           marginVertical: 10,
-        }}  />
+        }}
+      />
     </View>
   );
 };

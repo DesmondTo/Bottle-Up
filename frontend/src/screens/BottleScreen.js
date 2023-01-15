@@ -6,7 +6,6 @@ import {
   Alert,
   ImageBackground,
   StyleSheet,
-  Button,
 } from 'react-native';
 import io from 'socket.io-client';
 
@@ -38,7 +37,7 @@ const BottleScreen = ({ route, navigation }) => {
   const isCreateBottle = route.params.isCreateBottle;
   const bottleOwner = route.params.bottleOwner;
 
-  const image = require('../asset/background.png');
+  const image = require('../asset/wave-haikei.png');
 
   const createChatAlert = (alertTitle, alertMessage) =>
     Alert.alert(alertTitle, alertMessage, [
@@ -150,6 +149,7 @@ const BottleScreen = ({ route, navigation }) => {
       style={{
         flex: 1,
         display: 'flex',
+        backgroundColor: 'white',
       }}
       contentContainerStyle={{
         alignItems: 'flex-start',
@@ -249,10 +249,12 @@ const BottleScreen = ({ route, navigation }) => {
                 margin: 15,
               }}>
               <CustomButton
-                title="Send"
+                color="#d5e5ff"
                 onPress={sendMessageHandler}
                 disabled={!newMessage}
-              />
+              >
+                <Text>Send</Text>
+              </CustomButton>
             </View>
           </View>
         )}

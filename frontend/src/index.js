@@ -25,7 +25,7 @@ const Tab = createBottomTabNavigator();
 const Bottle = () => {
   const userCtx = useContext(UserContext);
   const isLoggedIn = userCtx.isSignedIn;
-  const image = require('./asset/background.png');
+  const image = require('./asset/wave-haikei.png');
 
   return (
     <ImageBackground source={image} resizeMode="cover" style={styles.image}>

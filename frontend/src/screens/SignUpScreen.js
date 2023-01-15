@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
-import { View, Button, Alert } from 'react-native';
+import { View, Alert } from 'react-native';
+import { Button } from '@rneui/themed';
 import UserContext from '../context/user-context';
 import Input from '../component/input';
 
@@ -57,7 +58,16 @@ const SignUpScreen = ({ navigation }) => {
         autoCapitalize="none"
         secureTextEntry
       />
-      <Button title="Sign Up" color="black" onPress={signUpHandler} />
+      <Button
+        title="Sign Up" 
+        onPress={signUpHandler}
+        buttonStyle={{ backgroundColor: 'rgba(39, 39, 39, 1)' }}
+        containerStyle={{
+          width: 100,
+          marginHorizontal: 50,
+          marginVertical: 10,
+        }}
+      />
     </View>
   );
 };

@@ -1,7 +1,8 @@
 import { useContext, useState } from 'react';
-import { View, Button, Alert } from 'react-native';
+import { View, Alert } from 'react-native';
 import UserContext from '../context/user-context';
 import Input from '../component/input';
+import { Button } from '@rneui/themed';
 
 const SignInScreen = ({ navigation }) => {
   const userCtx = useContext(UserContext);
@@ -48,7 +49,15 @@ const SignInScreen = ({ navigation }) => {
         autoCapitalize="none"
         secureTextEntry
       />
-      <Button title="Sign In" color="black" onPress={signInHandler} />
+      <Button 
+        title="Sign In" 
+        onPress={signInHandler} 
+        buttonStyle={{ backgroundColor: 'rgba(39, 39, 39, 1)' }}
+        containerStyle={{
+          width: 100,
+          marginHorizontal: 50,
+          marginVertical: 10,
+        }}  />
     </View>
   );
 };

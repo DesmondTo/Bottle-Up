@@ -11,9 +11,17 @@ const OceanStack = createNativeStackNavigator();
 export function OceanStackScreen() {
   return (
     <OceanStack.Navigator>
-      <OceanStack.Screen name="OceanScreen" component={OceanScreen} />
-      <OceanStack.Group screenOptions={{ presentation: 'modal'}}>
-        <OceanStack.Screen name="BottleScreen" component={BottleScreen}/>
+      <OceanStack.Screen
+        name="OceanScreen"
+        component={OceanScreen}
+        options={{ title: 'Ocean' }}
+      />
+      <OceanStack.Group screenOptions={{ presentation: 'modal' }}>
+        <OceanStack.Screen
+          name="BottleScreen"
+          component={BottleScreen}
+          options={{ title: 'Bottle' }}
+        />
       </OceanStack.Group>
     </OceanStack.Navigator>
   );
@@ -23,17 +31,21 @@ const ChatStack = createNativeStackNavigator();
 export function ChatStackScreen() {
   return (
     <ChatStack.Navigator>
-      <ChatStack.Screen name="ChatScreen" component={ChatScreen} />
+      <ChatStack.Screen
+        name="ChatScreen"
+        component={ChatScreen}
+        options={{ title: 'Chat' }}
+      />
       <ChatStack.Group
         screenOptions={{
           presentation: 'card',
           headerBackTitleVisible: false,
         }}>
-        <ChatStack.Screen 
-          name="BottleScreen" 
-          component={BottleScreen} 
-          options={({route}) => ({
-            title: route.params.username
+        <ChatStack.Screen
+          name="BottleScreen"
+          component={BottleScreen}
+          options={({ route }) => ({
+            title: 'My Chat',
           })}
         />
       </ChatStack.Group>
@@ -45,7 +57,11 @@ const ProfileStack = createNativeStackNavigator();
 export function ProfileStackScreen() {
   return (
     <ProfileStack.Navigator>
-      <ProfileStack.Screen name="ProfileScreen" component={ProfileScreen} />
+      <ProfileStack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{ title: 'Profile' }}
+      />
     </ProfileStack.Navigator>
   );
 }

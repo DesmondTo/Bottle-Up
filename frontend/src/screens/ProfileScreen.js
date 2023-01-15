@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { Text, View, Button, Alert, StyleSheet } from 'react-native';
+import CustomButton from '../component/button';
 import UserContext from '../context/user-context';
 
 const ProfileScreen = ({ navigation }) => {
@@ -26,7 +27,7 @@ const ProfileScreen = ({ navigation }) => {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text style={styles.titleText}>{username}</Text>
-      <Button color="red" title="Sign Out" onPress={signOutHandler} />
+      <CustomButton color="red" title="Sign Out" onPress={signOutHandler} />
     </View>
   );
 };

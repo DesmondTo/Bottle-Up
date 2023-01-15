@@ -1,7 +1,8 @@
-import { View, Button, Alert } from 'react-native';
+import { View, Alert } from 'react-native';
 import { findBottleAPI } from '../api/bottle-api';
 import { useContext } from 'react';
 import UserContext from '../context/user-context';
+import CustomButton from '../component/button';
 
 const OceanScreen = ({ navigation }) => {
   const userCtx = useContext(UserContext);
@@ -41,9 +42,25 @@ const OceanScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button title="Find Bottle" color='black' onPress={findBottleHandler(username)} />
-      <Button title="Write a Message" color='black' onPress={writeMessageHandler} />
+    <View
+      style={{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 32,
+      }}>
+      <CustomButton
+        title="Find Bottle"
+        color="black"
+        onPress={findBottleHandler(username)}
+        buttonStyle={{ width: 250 }}
+      />
+      <CustomButton
+        title="Write a Message"
+        color="black"
+        onPress={writeMessageHandler}
+        buttonStyle={{ width: 250 }}
+      />
     </View>
   );
 };

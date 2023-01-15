@@ -3,10 +3,10 @@ import {
   Text,
   View,
   ScrollView,
-  Button,
   Alert,
   ImageBackground,
   StyleSheet,
+  Button,
 } from 'react-native';
 import io from 'socket.io-client';
 
@@ -19,6 +19,7 @@ import {
 import { readChatAPI } from '../api/chat-api';
 import UserContext from '../context/user-context';
 import Input from '../component/input';
+import CustomButton from '../component/button';
 
 const chat_socket = io(URL_CHAT_SVC_SOCKET, {
   path: PATH_CHAT_SVC_SOCKET,
@@ -164,8 +165,12 @@ const BottleScreen = ({ route, navigation }) => {
           contentContainerStyle={{
             alignItems: 'flex-start',
           }}
-          ref={ref => {this.scrollView = ref}}
-          onContentSizeChange={() => this.scrollView.scrollToEnd({animated: true})}>
+          ref={ref => {
+            this.scrollView = ref;
+          }}
+          onContentSizeChange={() =>
+            this.scrollView.scrollToEnd({ animated: true })
+          }>
           {chatList.map(chat => {
             // TODO: Change this with a better message UI
             // If username does not match, put on the left, else right
@@ -211,12 +216,12 @@ const BottleScreen = ({ route, navigation }) => {
                 display: 'flex',
                 flexDirection: 'row',
               }}>
-              <Button
+              <CustomButton
                 title="Collect Bottle"
                 onPress={collectBottleHandler}
                 color="black"
               />
-              <Button
+              <CustomButton
                 title="Throw Bottle "
                 onPress={throwBottleHandler(bottleOwner, bottleID)}
                 color="red"
@@ -243,14 +248,10 @@ const BottleScreen = ({ route, navigation }) => {
               style={{
                 margin: 15,
               }}>
-              <Button
+              <CustomButton
                 title="Send"
-                color="black"
                 onPress={sendMessageHandler}
                 disabled={!newMessage}
-                style={{
-                  padding: 300,
-                }}
               />
             </View>
           </View>

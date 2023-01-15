@@ -195,6 +195,7 @@ const BottleScreen = ({ route, navigation }) => {
                 <Text
                   style={{
                     fontSize: 10,
+                    alignSelf: chat.username === 'Me' ? 'flex-end' : 'flex-start',
                   }}>
                   {chat.username}
                 </Text>
